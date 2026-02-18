@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
+/*
+  CX Living Brand System
+  - Dark-first
+  - Token-driven
+  - 3 modes (Book 1/2/3 vibes)
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core tokens (Book 1 default) */
+  --cx-bg: #000000;
+  --cx-fg: #ffffff;
+  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 45%);
+  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 88%);
+  --cx-accent: #ffffff;
+  --cx-radius: 10px;
+
+  /* Typography */
+  --cx-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --cx-font-display: var(--cx-font-sans);
+
+  /* Rhythm */
+  --cx-page-pad: 48px;
+}
+
+/* Book 2 — adventurous / cultured (subtle warmth, slightly softer contrast) */
+html[data-cx-mode="book2"] {
+  --cx-bg: #050505;
+  --cx-fg: #f3f3f0;
+  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 50%);
+  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 86%);
+  --cx-accent: #f3f3f0;
+  --cx-radius: 12px;
+}
+
+/* Book 3 — wild / slightly dangerous (harder contrast, sharper edges) */
+html[data-cx-mode="book3"] {
+  --cx-bg: #000000;
+  --cx-fg: #ffffff;
+  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 55%);
+  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 82%);
+  --cx-accent: #ffffff;
+  --cx-radius: 6px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--cx-bg);
+  --color-foreground: var(--cx-fg);
+  --font-sans: var(--cx-font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cx-bg);
+  color: var(--cx-fg);
+  font-family: var(--cx-font-sans);
 }

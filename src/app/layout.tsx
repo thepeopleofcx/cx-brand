@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NAV } from "@/lib/nav";
+import { ModeToggle } from "@/components/ModeToggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,13 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-dvh bg-black text-white antialiased">
+    <html lang="en" data-cx-mode="book1">
+      <body className="min-h-dvh bg-[var(--cx-bg)] text-[var(--cx-fg)] antialiased">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 md:grid-cols-[260px_1fr]">
-          <aside className="border-b border-white/10 md:min-h-dvh md:border-b-0 md:border-r">
+          <aside className="border-b border-[var(--cx-border)] md:min-h-dvh md:border-b-0 md:border-r">
             <div className="px-5 py-5">
               <Link href="/" className="block">
-                <div className="text-xs uppercase tracking-[0.18em] text-white/60">CX</div>
+                <div className="text-xs uppercase tracking-[0.18em] text-[var(--cx-muted)]">CX</div>
                 <div className="mt-1 text-sm font-medium tracking-tight">Living Brand System</div>
               </Link>
             </div>
@@ -30,7 +31,7 @@ export default function RootLayout({
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block rounded-md px-3 py-2 text-sm text-white/70 hover:bg-white/5 hover:text-white"
+                      className="block rounded-md px-3 py-2 text-sm text-[var(--cx-muted)] hover:bg-white/5 hover:text-[var(--cx-fg)]"
                     >
                       {item.title}
                     </Link>
@@ -41,11 +42,12 @@ export default function RootLayout({
           </aside>
 
           <div className="min-h-dvh">
-            <header className="sticky top-0 z-10 border-b border-white/10 bg-black/80 backdrop-blur">
-              <div className="px-6 py-4">
-                <div className="text-xs uppercase tracking-[0.18em] text-white/50">
-                  Mode: Book 1 (default)
+            <header className="sticky top-0 z-10 border-b border-[var(--cx-border)] bg-[color-mix(in_oklab,var(--cx-bg),transparent_10%)] backdrop-blur">
+              <div className="flex items-center justify-between px-6 py-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-[var(--cx-muted)]">
+                  Ruthless minimalism + edge
                 </div>
+                <ModeToggle />
               </div>
             </header>
             {children}
