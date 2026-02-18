@@ -9,12 +9,22 @@
 
 :root {
   /* Core tokens (Book 1 default) */
-  --cx-bg: #000000;
-  --cx-fg: #ffffff;
-  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 45%);
+  --cx-bg: #0b0b0c; /* Ink / near-black */
+  --cx-fg: #f2f2f2; /* Paper / off-white */
+  --cx-muted: #b8b8b8;
   --cx-border: color-mix(in oklab, var(--cx-fg), transparent 88%);
-  --cx-accent: #ffffff;
+  --cx-accent: #f2f2f2;
   --cx-radius: 10px;
+
+  /* Accents (signal colors; pick one per composition) */
+  --cx-accent-pink-noise: #f525a3;
+  --cx-accent-ethernet-sky: #1d90bf;
+  --cx-accent-cherry-collapse: #fe4247;
+  --cx-accent-tangerine-tantrum: #fd7e01;
+  --cx-accent-slime-blessing: #08f22f;
+  --cx-accent-flashbulb-memory: #e8e200;
+  --cx-accent-dream-bruise: #9750cd;
+  --cx-accent-coolant-crush: #05aec6;
 
   /* Typography */
   --cx-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
