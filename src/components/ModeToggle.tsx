@@ -22,8 +22,7 @@ export function ModeToggle() {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs uppercase tracking-[0.18em] text-white/50">Mode</span>
-      <div className="flex rounded-md border border-white/10 bg-white/5 p-1">
+      <div className="flex rounded border p-0.5" style={{ borderColor: "var(--cx-border)", background: "rgba(255,255,255,0.05)" }}>
         {MODES.map((m) => {
           const active = m.id === mode;
           return (
@@ -32,8 +31,8 @@ export function ModeToggle() {
               type="button"
               onClick={() => onChange(m.id)}
               className={
-                "rounded px-2 py-1 text-xs transition " +
-                (active ? "bg-white text-black" : "text-white/70 hover:text-white")
+                "rounded px-2 py-1 text-[10px] font-medium transition " +
+                (active ? "bg-white text-black" : "text-white/50 hover:text-white")
               }
               title={m.description}
             >

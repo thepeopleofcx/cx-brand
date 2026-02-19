@@ -10,8 +10,8 @@ export function CxButton({ children, href, variant = "primary" }: Props) {
   const className =
     "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition " +
     (variant === "primary"
-      ? "bg-[var(--cx-fg)] text-[var(--cx-bg)] hover:opacity-90"
-      : "border border-[var(--cx-border)] text-[var(--cx-fg)] hover:bg-white/5");
+      ? "bg-black text-white hover:bg-gray-800"
+      : "border border-gray-300 text-black hover:border-[var(--cx-pink)] hover:text-[var(--cx-pink)]");
 
   if (href) {
     return (

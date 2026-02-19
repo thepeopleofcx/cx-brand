@@ -2,21 +2,30 @@
 
 /*
   CX Living Brand System
-  - Dark-first
+  - Split layout: dark sidebar + white content
   - Token-driven
   - 3 modes (Book 1/2/3 vibes)
 */
 
 :root {
-  /* Core tokens (Book 1 default) */
-  --cx-bg: #0b0b0c; /* Ink / near-black */
-  --cx-fg: #f2f2f2; /* Paper / off-white */
+  /* Sidebar tokens */
+  --cx-bg: #0b0b0c;
+  --cx-fg: #f2f2f2;
   --cx-muted: #b8b8b8;
-  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 88%);
+  --cx-border: #262626;
   --cx-accent: #f2f2f2;
   --cx-radius: 10px;
 
-  /* Accents (signal colors; pick one per composition) */
+  /* Content area tokens */
+  --cx-content-bg: #ffffff;
+  --cx-content-fg: #000000;
+  --cx-content-muted: #6b7280;
+  --cx-content-border: #e5e7eb;
+
+  /* Accent */
+  --cx-pink: #f525a3;
+
+  /* Accents (signal colors) */
   --cx-accent-pink-noise: #f525a3;
   --cx-accent-ethernet-sky: #1d90bf;
   --cx-accent-cherry-collapse: #fe4247;
@@ -27,42 +36,63 @@
   --cx-accent-coolant-crush: #05aec6;
 
   /* Typography */
-  --cx-font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  --cx-font-display: var(--cx-font-sans);
+  --cx-font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cx-font-display: "Libre Caslon Display", "Big Caslon", "Book Antiqua", Georgia, serif;
+  --cx-font-mono: "Courier New", Courier, monospace;
 
   /* Rhythm */
   --cx-page-pad: 48px;
 }
 
-/* Book 2 — adventurous / cultured (subtle warmth, slightly softer contrast) */
+/* Book 2 — adventurous / cultured */
 html[data-cx-mode="book2"] {
   --cx-bg: #050505;
   --cx-fg: #f3f3f0;
   --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 50%);
-  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 86%);
+  --cx-border: #2a2a2a;
   --cx-accent: #f3f3f0;
   --cx-radius: 12px;
+  --cx-pink: #e040a0;
 }
 
-/* Book 3 — wild / slightly dangerous (harder contrast, sharper edges) */
+/* Book 3 — wild / slightly dangerous */
 html[data-cx-mode="book3"] {
   --cx-bg: #000000;
   --cx-fg: #ffffff;
   --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 55%);
-  --cx-border: color-mix(in oklab, var(--cx-fg), transparent 82%);
+  --cx-border: #333333;
   --cx-accent: #ffffff;
   --cx-radius: 6px;
+  --cx-pink: #ff00aa;
 }
 
 @theme inline {
-  --color-background: var(--cx-bg);
-  --color-foreground: var(--cx-fg);
+  --color-background: var(--cx-content-bg);
+  --color-foreground: var(--cx-content-fg);
   --font-sans: var(--cx-font-sans);
 }
 
 body {
-  background: var(--cx-bg);
-  color: var(--cx-fg);
   font-family: var(--cx-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-family: var(--cx-font-sans);
+}
+
+/* Mono label utility */
+.mono {
+  font-family: var(--cx-font-mono);
+  letter-spacing: -0.05em;
+}
+
+/* Mega typography */
+.mega {
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
 }

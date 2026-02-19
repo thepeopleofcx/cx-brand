@@ -6,12 +6,12 @@ type Props = {
 
 export function CxCard({ title, kicker, children }: Props) {
   return (
-    <section className="rounded-lg border border-[var(--cx-border)] p-6">
+    <section className="rounded-lg border border-gray-200 p-6">
       {kicker ? (
-        <div className="text-xs uppercase tracking-[0.18em] text-[var(--cx-muted)]">{kicker}</div>
+        <div className="mono text-xs uppercase text-gray-400">{kicker}</div>
       ) : null}
-      <h3 className="mt-2 text-sm font-medium tracking-tight">{title}</h3>
-      {children ? <div className="mt-3 text-sm text-[var(--cx-muted)]">{children}</div> : null}
+      <h3 className="mt-2 text-sm font-medium tracking-tight text-black">{title}</h3>
+      {children ? <div className="mt-3 text-sm text-gray-500">{children}</div> : null}
     </section>
   );
 }

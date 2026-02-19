@@ -1,4 +1,5 @@
 import { TokenSwatch } from "@/components/TokenSwatch";
+import { TokensBlock } from "@/components/TokensBlock";
 
 const CORE = [
   { name: "Ink (Background)", value: "--cx-bg", label: "#0B0B0C" },
@@ -20,16 +21,17 @@ const ACCENTS = [
 
 export default function ColorPage() {
   return (
-    <main className="px-6 py-12">
+    <div className="px-8 py-12 md:px-12 md:py-16">
       <div className="max-w-3xl">
-        <h1 className="text-3xl font-semibold tracking-tight">Color</h1>
-        <p className="mt-4 text-[var(--cx-muted)]">
-          Default is near-black + off-white. Accent is a scalpel: <span className="text-[var(--cx-fg)]">one signal color</span>, used
+        <div className="mono text-xs text-gray-400">II — VISUALS</div>
+        <h1 className="mega mt-4">Color</h1>
+        <p className="mt-6 text-lg text-gray-500">
+          Default is near-black + off-white. Accent is a scalpel: <span className="font-medium text-black">one signal color</span>, used
           sparingly.
         </p>
 
-        <section className="mt-10">
-          <h2 className="text-lg font-medium">Core</h2>
+        <section className="mt-12 border-t-2 pt-6" style={{ borderColor: "var(--cx-pink)" }}>
+          <h2 className="text-xl font-bold uppercase tracking-tight">Core</h2>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {CORE.map((t) => (
               <TokenSwatch key={t.value} name={t.name} value={t.label} previewVar={t.value} />
@@ -38,8 +40,8 @@ export default function ColorPage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-lg font-medium">Accent signals</h2>
-          <p className="mt-2 text-sm text-[var(--cx-muted)]">
+          <h2 className="text-xl font-bold uppercase tracking-tight">Accent signals</h2>
+          <p className="mt-2 text-sm text-gray-500">
             Rule: if you add accent, remove something else. Never more than one accent per composition.
           </p>
           <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -49,16 +51,23 @@ export default function ColorPage() {
           </div>
         </section>
 
-        <section className="mt-10 rounded-lg border border-[var(--cx-border)] p-5">
-          <h2 className="text-lg font-medium">Usage ratios</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[var(--cx-muted)]">
+        <section className="mt-10 rounded-lg border border-gray-200 p-5">
+          <h2 className="text-xl font-bold uppercase tracking-tight">Usage ratios</h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-500">
             <li>
-              Default distribution: <span className="text-[var(--cx-fg)]">80% Ink</span> / 15% Paper / 5% Accent (optional)
+              Default distribution: <span className="font-medium text-black">80% Ink</span> / 15% Paper / 5% Accent (optional)
             </li>
             <li>Accent should never be the default background unless concept demands it.</li>
           </ul>
         </section>
+        <section className="mt-10">
+          <h2 className="text-xl font-bold uppercase tracking-tight">Design tokens</h2>
+          <p className="mt-2 mb-4 text-sm text-gray-500">
+            Complete CSS custom properties block — copy and paste into any project.
+          </p>
+          <TokensBlock />
+        </section>
       </div>
-    </main>
+    </div>
   );
 }
