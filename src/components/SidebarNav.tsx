@@ -4,11 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SECTIONS } from "@/lib/nav";
 import { ModeToggle } from "./ModeToggle";
-import { useState } from "react";
+import { SearchOverlay } from "./SearchOverlay";
+import { useState, useCallback } from "react";
 
 export function SidebarNav() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const toggleSearch = useCallback(() => setSearchOpen((v) => !v), []);
 
   return (
     <aside
@@ -86,13 +89,18 @@ export function SidebarNav() {
       {/* Footer */}
       <div className="border-t px-6 py-4 md:px-8" style={{ borderColor: "var(--cx-border)" }}>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="mono text-[11px] text-[var(--cx-muted)]">Global Search</span>
+          <button
+            onClick={toggleSearch}
+            className="flex items-center gap-2 transition-opacity hover:opacity-80"
+          >
+            <span className="mono text-[11px] text-[var(--cx-muted)]">Search</span>
+            <span className="mono rounded border border-gray-600 px-1.5 py-0.5 text-[9px] text-gray-500">⌘K</span>
             <span className="inline-block h-2 w-2 rounded-sm" style={{ background: "var(--cx-pink)" }} />
-          </div>
+          </button>
           <ModeToggle />
         </div>
       </div>
+      <SearchOverlay open={searchOpen} onClose={toggleSearch} />
     </aside>
   );
 }
