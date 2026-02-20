@@ -3,7 +3,7 @@ import { CxCard } from "@/components/CxCard";
 
 export default function ComponentsPage() {
   return (
-    <div className="px-8 py-12 md:px-12 md:py-16">
+    <div className="px-5 py-8 md:px-12 md:py-16">
       <div className="max-w-3xl">
         <div className="mono text-xs text-gray-400">III — SYSTEM</div>
         <h1 className="mega mt-4">Compo&shy;nents</h1>

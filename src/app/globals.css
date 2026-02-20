@@ -90,9 +90,80 @@ h1, h2 {
 
 /* Mega typography */
 .mega {
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-size: clamp(2.5rem, 8vw, 7.5rem);
   font-weight: 700;
   text-transform: uppercase;
   line-height: 0.85;
   letter-spacing: -0.04em;
+}
+
+/* ── Responsive refinements ── */
+
+/* Tighten page padding on mobile */
+@media (max-width: 767px) {
+  :root {
+    --cx-page-pad: 20px;
+  }
+
+  .mega {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+    line-height: 0.9;
+  }
+}
+
+/* Smooth content appearance */
+main {
+  animation: fadeInUp 0.35s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Micro-interactions: links & interactive elements */
+a,
+button {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Hover lift for cards */
+.rounded-lg[class*="border"] {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rounded-lg[class*="border"]:hover {
+  border-color: var(--cx-pink);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--cx-pink), transparent 80%);
+}
+
+/* Copy-button pulse on click */
+@keyframes copyPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.copy-pulse {
+  animation: copyPulse 0.25s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 767px) {
+  nav a, nav button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
 }

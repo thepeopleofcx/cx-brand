@@ -1,6 +1,6 @@
 export default function QuickstartPage() {
   return (
-    <div className="px-8 py-12 md:px-12 md:py-16">
+    <div className="px-5 py-8 md:px-12 md:py-16">
       <div className="max-w-3xl">
         <div className="mono text-xs text-gray-400">QUICKSTART</div>
         <h1 className="mega mt-4">Brand in 60 Seconds</h1>
