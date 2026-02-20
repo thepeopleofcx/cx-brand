@@ -6,6 +6,7 @@ export type NavItem = {
 };
 
 export const NAV: NavItem[] = [
+  { title: "Quickstart", subtitle: "Brand in 60s", href: "/quickstart", section: "core" },
   { title: "Guidelines", subtitle: "Principles & Ethics", href: "/guidelines", section: "core" },
   { title: "Voice & Copy", subtitle: "Tone Framework", href: "/voice", section: "core" },
   { title: "Logo", subtitle: "Mark & Clearspace", href: "/logo", section: "core" },
