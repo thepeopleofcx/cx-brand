@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Logo — CX Brand System",
+  description: "Logo lockups, clear space, usage rules, and downloadable assets.",
+};
+
 import Image from "next/image";
 
 const PRIMARY = {

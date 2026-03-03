@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SidebarNav } from "@/components/SidebarNav";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({
           >
             {children}
           </main>
+          <ScrollToTop />
         </div>
       </body>
     </html>

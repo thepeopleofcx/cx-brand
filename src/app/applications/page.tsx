@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Applications — CX Brand System",
+  description: "Real-world brand applications and mockups.",
+};
+
 export default function ApplicationsPage() {
   const mark = (
     <div className="text-xs uppercase tracking-[0.25em] text-white/90">CX</div>

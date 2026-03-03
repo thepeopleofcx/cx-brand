@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Assets — CX Brand System",
+  description: "Downloadable brand assets, logos, and design files.",
+};
+
 import Image from "next/image";
 import Link from "next/link";
 

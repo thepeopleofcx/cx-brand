@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Quickstart — CX Brand System",
+  description: "Get up to speed with the CX brand in 60 seconds.",
+};
+
 export default function QuickstartPage() {
   return (
     <div className="px-5 py-8 md:px-12 md:py-16">

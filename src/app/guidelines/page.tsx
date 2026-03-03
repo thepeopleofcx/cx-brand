@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Guidelines — CX Brand System",
+  description: "Core principles, do's and don'ts, and foundational rules of the CX visual identity.",
+};
+
 export default function GuidelinesPage() {
   return (
     <div className="px-5 py-8 md:px-12 md:py-16">

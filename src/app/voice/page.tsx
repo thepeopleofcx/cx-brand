@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Voice — CX Brand System",
+  description: "Tone of voice, copy principles, and writing guidelines.",
+};
+
 export default function VoicePage() {
   return (
     <div className="px-5 py-8 md:px-12 md:py-16">

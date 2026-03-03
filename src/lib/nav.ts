@@ -2,7 +2,7 @@ export type NavItem = {
   title: string;
   subtitle: string;
   href: string;
-  section: "core" | "visuals" | "system";
+  section: "core" | "visuals" | "system" | "operations" | "calendar";
 };
 
 export const NAV: NavItem[] = [
@@ -17,10 +17,14 @@ export const NAV: NavItem[] = [
   { title: "Components", subtitle: "UI Library", href: "/components", section: "system" },
   { title: "Applications", subtitle: "Examples", href: "/applications", section: "system" },
   { title: "Assets", subtitle: "Downloads", href: "/assets", section: "system" },
+  { title: "Operations", subtitle: "CX × Lumo Ombro", href: "/CXtribeca_operations", section: "operations" },
+  { title: "Calendar", subtitle: "Master Calendar 2026", href: "/calendar", section: "calendar" },
 ];
 
 export const SECTIONS = [
   { id: "core" as const, label: "I — Core" },
   { id: "visuals" as const, label: "II — Visuals" },
   { id: "system" as const, label: "III — System" },
+  { id: "operations" as const, label: "IV — Operations" },
+  { id: "calendar" as const, label: "V — Calendar" },
 ];
