@@ -306,13 +306,6 @@ export default function MembershipPage() {
       {/* Cursor glow */}
       <div style={{ position: "fixed", left: mousePos.x - 200, top: mousePos.y - 200, width: 400, height: 400, borderRadius: "50%", background: `radial-gradient(circle, ${C.purple}06 0%, transparent 70%)`, pointerEvents: "none", zIndex: 50, transition: "left 0.15s, top 0.15s" }} />
 
-      {/* Back link */}
-      <div style={{ position: "fixed", top: 20, left: 24, zIndex: 90 }}>
-        <Link href="/source" style={{ fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", color: `${C.muted}80`, textDecoration: "none", display: "flex", alignItems: "center", gap: 8, transition: "color 0.3s" }}>
-          <span style={{ fontSize: 16 }}>←</span> Source
-        </Link>
-      </div>
-
       {/* ═══════════ HERO ═══════════ */}
       <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
