@@ -210,10 +210,10 @@ export default function MembershipPage() {
     {
       name: "Lifetime",
       credits: 44,
-      price: "$2,500",
+      price: "$2,550",
       period: " one-time",
       color: C.gold,
-      purchaseUrl: "https://mesh.tickets/scene/scn_3s9ay17hziqtxcwn02d9l/membership?cadence=lifetime",
+      purchaseUrl: "https://hello.cx/membership",
       tagline: "You are so into it you want equity.",
       ideal: "Inner circle access",
       includes: [
@@ -240,7 +240,7 @@ export default function MembershipPage() {
     { q: "How do I book an event?", a: "Log into your profile, browse the curated event calendar, and use credits to RSVP." },
     { q: "Can I bring friends?", a: "Yes! Use additional credits to add friends to your reservation. You must physically be present. You can also invite friends to apply for membership and earn reward credits." },
     { q: "What if I run out of credits?", a: "Add more anytime. +5 credits for $20 or +10 credits for $15 — the more you add, the better the deal." },
-    { q: "What if I don't use all my credits?", a: "Credits roll over month to month. Annual members roll credits into the next year if renewed. Credits never expire while your membership is active." },
+    { q: "What if I don't use all my credits?", a: "Annual members roll credits into the next year if renewed. Credits never expire while your membership is active." },
     { q: "What happens if I cancel?", a: "Monthly members can cancel anytime. Annual members can turn off auto-renew. Your credits remain available through the end of your active period." },
     { q: "What's the cancellation policy for booked events?", a: "Cancel 48+ hours before the event and your credits are returned. Within 48 hours, credits are forfeited." },
     { q: "What if I miss a reservation?", a: "Credits for missed reservations are forfeited." },
@@ -324,14 +324,10 @@ export default function MembershipPage() {
         <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at center, transparent 0%, ${C.bg} 75%)` }} />
 
         <div style={{ position: "relative", zIndex: 2, textAlign: "center", maxWidth: 900, padding: "0 24px" }}>
-          <p style={{ fontSize: 11, letterSpacing: "0.5em", textTransform: "uppercase", color: `${C.muted}80`, marginBottom: 32 }}>Your Cultural Passport</p>
           <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(48px, 8vw, 110px)", fontWeight: 300, lineHeight: 1, color: C.paper, animation: "heroGlow 8s ease-in-out infinite", marginBottom: 24 }}>
             CX Membership
           </h1>
           <div style={{ width: 160, height: 1, background: `linear-gradient(90deg, transparent, ${C.gold}50, transparent)`, margin: "0 auto 28px", animation: "lineGrow 2.5s ease forwards" }} />
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(17px, 2.2vw, 24px)", fontWeight: 300, fontStyle: "italic", color: `${C.paper}60`, lineHeight: 1.6, maxWidth: 620, margin: "0 auto 20px" }}>
-            A culture-credit model designed to invite choice into infinite connections.
-          </p>
           <p style={{ fontSize: 15, color: `${C.paper}45`, lineHeight: 1.7, maxWidth: 520, margin: "0 auto" }}>
             Think of it like a cultural passport — your credits act as tickets to meaningful connection.
           </p>
@@ -541,7 +537,7 @@ export default function MembershipPage() {
           {[
             { num: "01", title: "Access", desc: "Book tickets to CX and partner events worldwide.", color: C.orange },
             { num: "02", title: "Priority", desc: "Early access to tentpole events before the general public.", color: C.purple },
-            { num: "03", title: "Flexibility", desc: "Credits roll over and can be added anytime.", color: C.cyan },
+            { num: "03", title: "Flexibility", desc: "Use your credits anytime you like for any event you chose.", color: C.cyan },
           ].map((b, i) => (
             <Reveal key={i} delay={i * 120}>
               <div style={{ textAlign: "center", padding: "40px 24px" }}>
@@ -616,26 +612,6 @@ export default function MembershipPage() {
           ))}
         </div>
 
-        {/* Add-ons */}
-        <Reveal delay={400}>
-          <div style={{ padding: "32px", background: `linear-gradient(135deg, ${C.orange}0a, ${C.bg}, ${C.gold}08)`, border: `1px solid ${C.orange}20`, borderRadius: 16, textAlign: "center" }}>
-            <p style={{ fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", color: `${C.orange}cc`, marginBottom: 16 }}>Credit Add-Ons</p>
-            <div style={{ display: "flex", justifyContent: "center", gap: 40, flexWrap: "wrap" }}>
-              <div>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 32, color: C.paper, fontWeight: 500 }}>+5</span>
-                <span style={{ fontSize: 14, color: `${C.paper}60`, marginLeft: 4 }}>credits</span>
-                <p style={{ fontSize: 20, color: C.orange, fontWeight: 500, marginTop: 4 }}>$20</p>
-              </div>
-              <div style={{ width: 1, background: `${C.paper}15` }} />
-              <div>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 32, color: C.paper, fontWeight: 500 }}>+10</span>
-                <span style={{ fontSize: 14, color: `${C.paper}60`, marginLeft: 4 }}>credits</span>
-                <p style={{ fontSize: 20, color: C.orange, fontWeight: 500, marginTop: 4 }}>$15</p>
-                <span style={{ fontSize: 10, color: C.gold, letterSpacing: "0.1em", textTransform: "uppercase" }}>Better deal</span>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </section>
 
       {/* ═══════════ FAQ ═══════════ */}
