@@ -1,125 +1,151 @@
 @import "tailwindcss";
 
 /*
-  CX Living Brand System
-  - Split layout: dark sidebar + white content
-  - Token-driven
-  - 3 modes (Book 1/2/3 vibes)
+  CX Brand Book
+  - White hero with black text (matching cx-website)
+  - Transitions to dark (#0B0B0C) sections
+  - Bold, massive typography
+  - Smooth scroll with subtle entrance animations
 */
 
 :root {
-  /* Sidebar tokens */
-  --cx-bg: #0b0b0c;
-  --cx-fg: #f2f2f2;
-  --cx-muted: #b8b8b8;
-  --cx-border: #262626;
-  --cx-accent: #f2f2f2;
-  --cx-radius: 10px;
+  /* Primary palette */
+  --cx-white: #ffffff;
+  --cx-black: #000000;
+  --cx-dark: #0b0b0c;
+  --cx-gray: #6b7280;
+  --cx-border: #e5e7eb;
+  --cx-border-dark: #262626;
 
-  /* Content area tokens */
-  --cx-content-bg: #ffffff;
-  --cx-content-fg: #000000;
-  --cx-content-muted: #6b7280;
-  --cx-content-border: #e5e7eb;
-
-  /* Accent */
-  --cx-pink: #f525a3;
-
-  /* Accents (signal colors) */
-  --cx-accent-pink-noise: #f525a3;
-  --cx-accent-ethernet-sky: #1d90bf;
-  --cx-accent-cherry-collapse: #fe4247;
-  --cx-accent-tangerine-tantrum: #fd7e01;
-  --cx-accent-slime-blessing: #08f22f;
-  --cx-accent-flashbulb-memory: #e8e200;
-  --cx-accent-dream-bruise: #9750cd;
-  --cx-accent-coolant-crush: #05aec6;
+  /* Brand accent colors (event spectrum) */
+  --cx-ethernet-sky: #1d90bf;
+  --cx-cherry-collapse: #fe4247;
+  --cx-tangerine-tantrum: #fd7e01;
+  --cx-slime-blessing: #08f22f;
+  --cx-flashbulb-memory: #e8e200;
+  --cx-dream-bruise: #9750cd;
+  --cx-coolant-crush: #05aec6;
 
   /* Typography */
   --cx-font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --cx-font-display: "Libre Caslon Display", "Big Caslon", "Book Antiqua", Georgia, serif;
-  --cx-font-mono: "Courier New", Courier, monospace;
+  --cx-font-display: "Big Caslon", "Libre Caslon Display", "Book Antiqua", Georgia, serif;
+  --cx-font-proxima: "Proxima Nova", "Inter", Arial, sans-serif;
 
-  /* Rhythm */
+  /* Spacing */
   --cx-page-pad: 48px;
-}
-
-/* Book 2 — adventurous / cultured */
-html[data-cx-mode="book2"] {
-  --cx-bg: #050505;
-  --cx-fg: #f3f3f0;
-  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 50%);
-  --cx-border: #2a2a2a;
-  --cx-accent: #f3f3f0;
-  --cx-radius: 12px;
-  --cx-pink: #e040a0;
-}
-
-/* Book 3 — wild / slightly dangerous */
-html[data-cx-mode="book3"] {
-  --cx-bg: #000000;
-  --cx-fg: #ffffff;
-  --cx-muted: color-mix(in oklab, var(--cx-fg), transparent 55%);
-  --cx-border: #333333;
-  --cx-accent: #ffffff;
-  --cx-radius: 6px;
-  --cx-pink: #ff00aa;
+  --cx-section-gap: 120px;
 }
 
 @theme inline {
-  --color-background: var(--cx-content-bg);
-  --color-foreground: var(--cx-content-fg);
+  --color-background: var(--cx-white);
+  --color-foreground: var(--cx-black);
   --font-sans: var(--cx-font-sans);
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: var(--cx-font-sans);
+  background: var(--cx-dark);
+  color: var(--cx-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-h1, h2 {
+/* Typography scale */
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--cx-font-sans);
-}
-
-/* Mono label utility */
-.mono {
-  font-family: var(--cx-font-mono);
-  letter-spacing: -0.05em;
-}
-
-/* Mega typography */
-.mega {
-  font-size: clamp(2.5rem, 8vw, 7.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 0.85;
+  font-weight: 900;
+  line-height: 0.9;
   letter-spacing: -0.04em;
 }
 
-/* ── Responsive refinements ── */
-
-/* Tighten page padding on mobile */
-@media (max-width: 767px) {
-  :root {
-    --cx-page-pad: 20px;
-  }
-
-  .mega {
-    font-size: clamp(2.2rem, 12vw, 3.5rem);
-    line-height: 0.9;
-  }
+/* Massive hero headline style */
+.hero-headline {
+  font-size: clamp(4rem, 18vw, 14rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
 }
 
-/* Smooth content appearance */
-main {
-  animation: fadeInUp 0.35s ease-out both;
+/* Section headline style */
+.section-headline {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
 }
 
+/* Subheadline */
+.subheadline {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* Body text */
+.body-large {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Section label */
+.section-label {
+  font-family: var(--cx-font-proxima);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+/* White section (hero) */
+.section-white {
+  background: var(--cx-white);
+  color: var(--cx-black);
+}
+
+/* Dark section (default) */
+.section-dark {
+  background: var(--cx-dark);
+  color: var(--cx-white);
+}
+
+/* Section container */
+.section-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--cx-page-pad);
+}
+
+/* Full bleed section */
+.section-full-bleed {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fade in on scroll animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -127,43 +153,165 @@ main {
   }
 }
 
-/* Micro-interactions: links & interactive elements */
-a,
-button {
-  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Hover lift for cards */
-.rounded-lg[class*="border"] {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.fade-in-up-delay {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
-.rounded-lg[class*="border"]:hover {
-  border-color: var(--cx-pink);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--cx-pink), transparent 80%);
+/* Intersection observer hook */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Copy-button pulse on click */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive elements */
+button, a {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  opacity: 0.8;
+}
+
+button:active, a:active {
+  transform: scale(0.98);
+}
+
+/* Color swatch copy interaction */
+.color-swatch {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.color-swatch:active {
+  transform: scale(0.95);
+}
+
+/* Copy confirmation pulse */
 @keyframes copyPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
 }
 
-.copy-pulse {
-  animation: copyPulse 0.25s ease;
+.copy-success {
+  animation: copyPulse 0.3s ease;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Logo toggle */
+.logo-toggle {
+  transition: opacity 0.3s ease;
 }
 
-/* Better touch targets on mobile */
-@media (max-width: 767px) {
-  nav a, nav button {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
+/* Scroll indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.scroll-indicator {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Image overlay for text readability */
+.img-overlay {
+  position: relative;
+}
+
+.img-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  pointer-events: none;
+}
+
+/* Typography specimen */
+.type-specimen {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.type-scale-item {
+  border-bottom: 1px solid var(--cx-border-dark);
+  padding: 1rem 0;
+}
+
+/* Grid system */
+.grid-demo {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Responsive refinements */
+@media (max-width: 768px) {
+  :root {
+    --cx-page-pad: 24px;
+    --cx-section-gap: 80px;
   }
+
+  .hero-headline {
+    font-size: clamp(3rem, 15vw, 5rem);
+    line-height: 0.9;
+  }
+
+  .section-headline {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .subheadline {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .body-large {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--cx-flashbulb-memory);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--cx-flashbulb-memory);
+  color: var(--cx-black);
+}
+
+::-moz-selection {
+  background: var(--cx-flashbulb-memory);
+  color: var(--cx-black);
 }
